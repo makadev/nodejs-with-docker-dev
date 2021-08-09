@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  ## (dev) server
+  ## - start dev server with: docker compose up server
+  ## - stop with: docker compose down server
+  server:
+    build:
+      context: ./.docker/dev-server
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+    ports:
+      - "127.0.0.1:8080:3000"
+    command: npm run start
+  ## bash for running commands
+  ## - no portmapping hence serve or watch-dev won't work
+  ## - run with: docker compose run --rm toolbox
+  toolbox:
+    build:
+      context: ./.docker/dev-toolbox
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+    command: /bin/bash
+    profiles:
+      - tools
