@@ -1,3 +1,5 @@
+__this was an attempt to utilize docker compose profiles for f.e. dev/prod setup but it didn't prove as usefull as simply using overrides or separate dev/prod file__
+
 # nodejs-with-docker-dev
 NodeJS LTS with Docker for Development Template comes with
 * a docker-compose configuration to mount the project path under `/app` inside a container for serving/building/modifications
